@@ -1,0 +1,4 @@
+.idea
+.venv
+src/etl.egg-info
+conf.json

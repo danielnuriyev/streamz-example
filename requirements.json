@@ -1,0 +1,14 @@
+{
+  "install_requires": [
+    "boto3",
+    "pandas",
+    "psutil",
+    "pyarrow",
+    "streamz"
+  ],
+  "extras_require": {
+    "mysql": [
+      "mysql-connector==2.2.9"
+    ]
+  }
+}
