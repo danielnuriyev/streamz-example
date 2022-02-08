@@ -129,7 +129,13 @@ class MySQLSource(Source):
                     df = pd.DataFrame(rows, schema=self.schema)
                 else:
                     df = pd.DataFrame(rows)
-                emitter.emit(df)
+                emitter.emit({
+                    "data": df,
+                    "metadata": {
+                        "type": "data",
+                        "format": "pandas.dataframe"
+                    }
+                })
 
                 if keys:
                     last_row = rows[-1]

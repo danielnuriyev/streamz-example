@@ -35,9 +35,16 @@ class S3Sink(Sink):
         self._rows = 0
         self._start = time.time()
 
-    def run(self, df):
+    def run(self, packet):
 
-        if len(df) < 1: return
+        if packet is None or not packet.has_key("data") or not isinstance(packet["data"], pandas.DataFrame):
+            logger.warn(f"Wrong data type: {type(packet)}")
+            return
+
+        df = packet["data"]
+
+        if len(df) < 1:
+            return
 
         timestamp = int(time.time() * 1000000)
 
