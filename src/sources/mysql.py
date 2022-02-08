@@ -13,6 +13,8 @@ logger = logging.getLogger(__name__)
 
 class MySQLSource(Source):
 
+    # TODO: add pause, restart methods
+
     def __init__(self,
                  port=3306,
                  table=None,

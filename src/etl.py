@@ -38,4 +38,4 @@ if __name__ == "__main__":
 
     stream.sink(sink.run)
 
-    source.run(stream)
+    source.run(stream) # TODO: to pause, stop, restart a pipeline just add methods to Source

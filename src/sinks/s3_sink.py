@@ -58,7 +58,7 @@ class S3Sink(Sink):
             df.to_parquet(buffer)
         buffer.seek(0)
         logger.info(f"File size: {buffer.getbuffer().nbytes}")
-        response = self._s3_client.put_object(
+        response = self._s3_client.put_object( # TODO: this can run in a thread
             Body=buffer,
             Bucket=self.bucket,
             Key=object_name
